@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const clienteAxios = axios.create({
-    baseURL : process.env.REACT_APP_AXIOS
+    baseURL : "https://tienda-vinos-zepeda.herokuapp.com/api"
 })
 
 export default clienteAxios
