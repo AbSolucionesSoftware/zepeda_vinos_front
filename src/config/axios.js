@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const clienteAxios = axios.create({
     baseURL : "https://tienda-vinos-zepeda.herokuapp.com/api"
