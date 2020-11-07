@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.bc26321f.chunk.css",
-    "main.js": "/static/js/main.1dbdebf9.chunk.js",
-    "main.js.map": "/static/js/main.1dbdebf9.chunk.js.map",
+    "main.css": "/static/css/main.b888485c.chunk.css",
+    "main.js": "/static/js/main.8fcbc5a6.chunk.js",
+    "main.js.map": "/static/js/main.8fcbc5a6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5aecc905.js",
     "runtime-main.js.map": "/static/js/runtime-main.5aecc905.js.map",
-    "static/css/2.da1f744e.chunk.css": "/static/css/2.da1f744e.chunk.css",
-    "static/js/2.b005936f.chunk.js": "/static/js/2.b005936f.chunk.js",
-    "static/js/2.b005936f.chunk.js.map": "/static/js/2.b005936f.chunk.js.map",
+    "static/css/2.b1844c4c.chunk.css": "/static/css/2.b1844c4c.chunk.css",
+    "static/js/2.5a506760.chunk.js": "/static/js/2.5a506760.chunk.js",
+    "static/js/2.5a506760.chunk.js.map": "/static/js/2.5a506760.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2f25240fca723d3c3cbcc93cdb590b93.js": "/precache-manifest.2f25240fca723d3c3cbcc93cdb590b93.js",
+    "precache-manifest.98802972e3c5ce1d92ddaea4c57ee49c.js": "/precache-manifest.98802972e3c5ce1d92ddaea4c57ee49c.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.da1f744e.chunk.css.map": "/static/css/2.da1f744e.chunk.css.map",
-    "static/css/main.bc26321f.chunk.css.map": "/static/css/main.bc26321f.chunk.css.map",
-    "static/js/2.b005936f.chunk.js.LICENSE.txt": "/static/js/2.b005936f.chunk.js.LICENSE.txt",
+    "static/css/2.b1844c4c.chunk.css.map": "/static/css/2.b1844c4c.chunk.css.map",
+    "static/css/main.b888485c.chunk.css.map": "/static/css/main.b888485c.chunk.css.map",
+    "static/js/2.5a506760.chunk.js.LICENSE.txt": "/static/js/2.5a506760.chunk.js.LICENSE.txt",
     "static/media/Animacion_Tarjeta.scss": "/static/media/bg-tarjeta-01.3c6258e5.jpg",
     "static/media/chip-tarjeta.png": "/static/media/chip-tarjeta.6611645b.png",
     "static/media/mastercard.png": "/static/media/mastercard.ae0915fe.png",
@@ -21,9 +21,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5aecc905.js",
-    "static/css/2.da1f744e.chunk.css",
-    "static/js/2.b005936f.chunk.js",
-    "static/css/main.bc26321f.chunk.css",
-    "static/js/main.1dbdebf9.chunk.js"
+    "static/css/2.b1844c4c.chunk.css",
+    "static/js/2.5a506760.chunk.js",
+    "static/css/main.b888485c.chunk.css",
+    "static/js/main.8fcbc5a6.chunk.js"
   ]
 }

@@ -1,4 +1,5 @@
-const aws = "https://tienda-zepeda.s3-us-west-1.amazonaws.com/";
+import 'dotenv';
 
+const aws = 'https://prueba-imagenes-uploads.s3.us-west-1.amazonaws.com/';
 
 export default aws
