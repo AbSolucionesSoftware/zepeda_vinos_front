@@ -50,31 +50,32 @@ const BgElement = Element.BgElement;
                     </TweenOne>
                  ) : ""}
 
-                {banner.imagenBanner ? (
-                    <div className="banner-prin"> 
-                     <BannerAnim autoPlay activeIndex={index} onSelect={handleSelect} prefixCls="banner-prin mx-auto" >
-                     <Element prefixCls="banner-user-elem" animation={{ y: 30, opacity: 0, type: 'from', delay: 800 }}>
-                         <BgElement
-                             onClick={() =>
-                                 {if (banner.vincularCategoria != false) {
-                                     props.history.push(`/searching/${banner.categoria}`);
-                                 }
-                             }}
- 
-                             key="bg"
-                             className="bg banner-prom mx-auto"
-                             alt="img-oferta"
-                             style={{
-                                 backgroundImage: `url(${aws + banner.imagenBanner})`,
-                                 cursor: 'pointer'
-                             }}
-                         >
-                         </BgElement>
-                     </Element>
-                     </BannerAnim>
-                    </div>
-                    ) : 
+                {!banner.imagenBanner || banner.imagenBanner === '' ? (
                     ""
+                    ) : 
+                    (                    
+                    <div className="banner-prin"> 
+                    <BannerAnim autoPlay activeIndex={index} onSelect={handleSelect} prefixCls="banner-prin mx-auto" >
+                    <Element prefixCls="banner-user-elem" animation={{ y: 30, opacity: 0, type: 'from', delay: 800 }}>
+                        <BgElement
+                            onClick={() =>
+                                {if (banner.vincularCategoria != false) {
+                                    props.history.push(`/searching/${banner.categoria}`);
+                                }
+                            }}
+
+                            key="bg"
+                            className="bg banner-prom mx-auto"
+                            alt="img-oferta"
+                            style={{
+                                backgroundImage: `url(${aws + banner.imagenBanner})`,
+                                cursor: 'pointer'
+                            }}
+                        >
+                        </BgElement>
+                    </Element>
+                    </BannerAnim>
+                   </div>)
                     }
 
                 <div>
