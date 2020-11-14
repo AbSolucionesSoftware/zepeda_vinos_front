@@ -481,7 +481,7 @@ function TallasCantidades(props) {
 					<div className="contenedor-button-vista">
 						<div>
 							<Button
-								className="d-block size-button-vista"
+								className="d-block size-button-vista color-boton color-font-boton"
 								type="primary"
 								size="large"
 								onClick={() => Pedido()}
@@ -491,7 +491,7 @@ function TallasCantidades(props) {
 								Comprar ahora
 							</Button>
 							<Button
-								className="mt-3 d-block size-button-vista boton-compras-secun"
+								className="mt-3 d-block size-button-vista color-boton-sec color-font-boton"
 								size="large"
 								onClick={() => showModal()}
 								disabled={disabled}
@@ -500,7 +500,7 @@ function TallasCantidades(props) {
 								Apartar
 							</Button>
 							<Button
-								className="mt-3 d-block size-button-vista boton-compras-secun"
+								className="mt-3 d-block size-button-vista color-boton-sec color-font-boton"
 								size="large"
 								disabled={disabled}
 								onClick={() => Carrito()}
