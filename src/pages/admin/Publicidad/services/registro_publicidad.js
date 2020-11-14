@@ -237,7 +237,10 @@ function RegistroPublicidad(props) {
 
 	const llenarCampos = useCallback(
 		() => {
-			if (bannerSeleccionado.imagenBanner || bannerSeleccionado.imagenBanner !== '') {
+			if (!bannerSeleccionado.imagenBanner || bannerSeleccionado.imagenBanner === '') {
+				setImagen('');
+				setFileList([]);
+			} else {
 				setImagen(bannerSeleccionado.imagenBanner);
 				setFileList([
 					{
@@ -247,9 +250,6 @@ function RegistroPublicidad(props) {
 						url: aws + bannerSeleccionado.imagenBanner
 					}
 				]);
-			} else {
-				setImagen('');
-				setFileList([]);
 			}
 
 			form.setFieldsValue({
