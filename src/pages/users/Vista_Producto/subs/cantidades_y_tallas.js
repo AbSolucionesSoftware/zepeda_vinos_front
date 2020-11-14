@@ -128,7 +128,7 @@ function TallasCantidades(props) {
 				setRender(
 					productos.tallas.map((tallas) => {
 						return tallas.cantidad > 0 ? (
-							<Badge key={tallas._id} count={tallas.cantidad} style={{ backgroundColor: '#1890FF' }}>
+							<Badge key={tallas._id} count={tallas.cantidad}>
 								<Button
 									type="dashed"
 									className="talla-vista-producto d-inline-block"
