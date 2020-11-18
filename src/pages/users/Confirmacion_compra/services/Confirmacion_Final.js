@@ -25,6 +25,7 @@ export default function Confirmacion_Final(props) {
 		traerCostosEnvio();
 		setLoading(true);
 	}, []);
+	
 
 	const traerCostosEnvio = async () => {
 		await clienteAxios
