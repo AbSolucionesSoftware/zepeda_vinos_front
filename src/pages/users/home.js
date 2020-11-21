@@ -5,9 +5,7 @@ import Carousel from './Carusel_ofertas/carousel';
 import Ofertas from './Ofertas/ofertasHome';
 import Datos_tienda from './Datos_tienda/datos_tienda'
 import Banner_Promocion from './BannerPromociones/BannerPromocion'
-import './home.scss';
-
-
+import './home.scss'
 
 export default function Home(props) {
 
