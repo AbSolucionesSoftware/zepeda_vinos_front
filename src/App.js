@@ -11,7 +11,7 @@ export default function App() {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Tienda Online</title>       
+        <title>Zepeda vinos</title>       
       </Helmet>
       <Router>
           <Switch>
