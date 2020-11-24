@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import { withRouter, Link } from 'react-router-dom';
 import { notification, Form, Input, Button,Alert  } from 'antd';
 import {useParams} from 'react-router-dom';
 import clienteAxios from '../../config/axios';
@@ -15,15 +14,14 @@ export default function Recuperar_pass(props) {
 
     const {location,history} = props;
     const {idRecuperacion} = useParams();
-    console.log(idRecuperacion);
 
     const [mostrarError, setmostrarError] = useState("d-none");
-    const [acceso, setAcceso] = useState(false)
+    const [acceso, setAcceso] = useState(false);
 
     useEffect(() => {
         setAcceso(false);
         const cambiarEstadoPass = async () => {
-            await clienteAxios.put(`/restablecer/pass/${idRecuperacion}`)
+            await clienteAxios.put(`/cliente/restablecer/pass/${idRecuperacion}`)
             .then((res) => {
                 setAcceso(false);
             })
@@ -34,12 +32,29 @@ export default function Recuperar_pass(props) {
         cambiarEstadoPass();
     }, [])
 
-    const onFinish = (values) => {
+    const onFinish = async (values) => {
         const {password,confirmPassword} = values;
         if(password !== confirmPassword){
             setmostrarError("");
         }else{
-            console.log("Son iguales");
+            const datos = {
+                password,
+                confirmPassword,
+                idRecuperacion,
+            }
+            await clienteAxios.put('/cliente/reset/pass/',datos)
+            .then((res) => {
+                const token = res.data.token;
+                localStorage.setItem('token', token);
+            })
+            .catch((err) => {
+                notification.error({
+                    message: 'Error',
+                    description: 'Hubo un error',
+                    duration: 2
+                });
+            })
+            props.history.push('/');
         }
     }
 
@@ -72,7 +87,7 @@ function FormResetPass(props){
                         </Form.Item>
                     </Form.Item>
                     <Alert
-                        className={`mb-4 ${mostrarError}`}
+                        className={`my-4 ${mostrarError}`}
                         message="Contraseña distintas"
                         description="Las contraseñas son distintas, favor de poner la misma"
                         type="error"
