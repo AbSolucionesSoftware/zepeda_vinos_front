@@ -8,6 +8,7 @@ import jwt_decode from 'jwt-decode';
 import { withRouter } from 'react-router-dom';
 import aws from '../../../../config/aws';
 import Spin from '../../../../components/Spin';
+import Estados_disponibles from '../../Consulta_covertura/estados_disponibles';
 
 const { Option } = Select;
 const { Meta } = Card;
@@ -35,6 +36,19 @@ const Sugerencia = (props) => {
 	const [ medida, setMedida ] = useState([]);
 	const [ cantidadFinalProducto, setCantidadFinalProducto ] = useState(1);
 	const [ disponibilidad, setDisponibilidad ] = useState('');
+
+	const [ dataEstados, setDataEstados ] = useState([]);
+
+	const traerDatos = async () => {
+		clienteAxios
+			.get(`/politicasEnvio/estados/`)
+			.then((res) => {
+				res.data.map((todos) => {
+					setDataEstados(todos);
+				});
+			})
+			.catch((err) => {});
+	};
 
 	function selectTallaProducto(value) {
 		setMedida(value);
@@ -87,6 +101,7 @@ const Sugerencia = (props) => {
 
 	useEffect(() => {
 		obtenerSugerencia();
+		traerDatos();
 	}, []);
 	useEffect(
 		() => {
@@ -151,13 +166,13 @@ const Sugerencia = (props) => {
 				setLoading(false);
 			})
 			.catch((err) => {
-				if(err.response){
+				if (err.response) {
 					notification.error({
 						message: 'Error',
 						description: err.response.data.message,
 						duration: 2
 					});
-				}else{
+				} else {
 					notification.error({
 						message: 'Error de conexion',
 						description: 'Al parecer no se a podido conectar al servidor.',
@@ -173,18 +188,18 @@ const Sugerencia = (props) => {
 		let productoPrecio;
 		let sugerenciaPrecio;
 
-		if(productoPromocion.length !== 0){
+		if (productoPromocion.length !== 0) {
 			productoPrecio = productoPromocion.precioPromocion;
-		}else{
+		} else {
 			productoPrecio = producto.precio;
 		}
 
-		if(sugerenciaPromocion.length !== 0){
+		if (sugerenciaPromocion.length !== 0) {
 			sugerenciaPrecio = sugerenciaPromocion.precioPromocion;
-		}else{
+		} else {
 			sugerenciaPrecio = sugerencia.precio;
 		}
-		
+
 		AgregarPedido(
 			decoded._id,
 			producto._id,
@@ -204,7 +219,7 @@ const Sugerencia = (props) => {
 
 	function showConfirm() {
 		if (!token) {
-			localStorage.setItem("vistas", `/vista_producto/${producto._id}`);
+			localStorage.setItem('vistas', `/vista_producto/${producto._id}`);
 			props.history.push('/entrar');
 			notification.info({
 				message: 'inicia sesión para poder realizar tus compras',
@@ -238,7 +253,8 @@ const Sugerencia = (props) => {
 
 	return (
 		<Spin spinning={loading}>
-			<div className="row mw-100">
+			<div>{dataEstados.length !== 0 ? dataEstados.todos !== true ? <Estados_disponibles /> : null : null}</div>
+			<div className="row mw-100 mt-3">
 				{!producto || !sugerencia ? (
 					<div />
 				) : (
@@ -259,7 +275,7 @@ const Sugerencia = (props) => {
 												<img
 													className="imagen-producto-sugerencia"
 													alt="producto actual"
-													src={aws+producto.imagen}
+													src={aws + producto.imagen}
 												/>
 											</div>
 										}
@@ -329,7 +345,7 @@ const Sugerencia = (props) => {
 																placeholder="Cantidad"
 																min={1}
 																max={medida[1]}
-																defaultValue={1}
+																/* defaultValue={1} */
 																onChange={obtenerCantidadMedidaProducto}
 																style={{ width: 130 }}
 																disabled={medida.length !== 0 ? false : true}
@@ -345,7 +361,7 @@ const Sugerencia = (props) => {
 																placeholder="Cantidad"
 																min={1}
 																max={producto.cantidad}
-																defaultValue={1}
+																/* defaultValue={1} */
 																onChange={obtenerCantidadProducto}
 																style={{ width: 130 }}
 															/>
@@ -407,7 +423,7 @@ const Sugerencia = (props) => {
 												<img
 													className="imagen-producto-sugerencia"
 													alt="producto actual"
-													src={aws+sugerencia.imagen}
+													src={aws + sugerencia.imagen}
 												/>
 											</div>
 										}
@@ -477,7 +493,7 @@ const Sugerencia = (props) => {
 																placeholder="Cantidad"
 																min={1}
 																max={medidaSugerencia[1]}
-																defaultValue={1}
+																/* defaultValue={1} */
 																onChange={obtenerCantidadMedidaSugerencia}
 																style={{ width: 130 }}
 																disabled={medidaSugerencia.length !== 0 ? false : true}
@@ -493,7 +509,7 @@ const Sugerencia = (props) => {
 																placeholder="Cantidad"
 																min={1}
 																max={sugerencia.cantidad}
-																defaultValue={1}
+																/* defaultValue={1} */
 																onChange={obtenerCantidadSugerencia}
 																style={{ width: 130 }}
 															/>
