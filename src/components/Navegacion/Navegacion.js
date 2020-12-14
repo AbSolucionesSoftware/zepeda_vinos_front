@@ -281,7 +281,7 @@ const Navegacion = (props) => {
 						</Button>
 						<Search
 							className="search-nav-responsive"
-							placeholder="input search text"
+							placeholder="¿Qué estás buscando?"
 							onSearch={(value) => props.history.push(`/searching/${value}`)}
 						/>
 						{!decoded || decoded.rol === true ? (
