@@ -11,6 +11,10 @@ export default function App() {
     <div>
       <Helmet>
         <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="Zepeda vinos"
+        />
         <title>Zepeda Vinos</title>       
       </Helmet>
       <Router>
